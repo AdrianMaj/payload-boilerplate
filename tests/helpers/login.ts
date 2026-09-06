@@ -25,6 +25,7 @@ export async function login({
 
   await page.waitForURL(`${serverURL}/admin`);
 
-  const dashboardArtifact = page.locator('span[title="Dashboard"]');
-  await expect(dashboardArtifact).toBeVisible();
+  // custom Nav (src/components/AdminNavbar) renderuje linki z id="nav-<slug>"
+  const navArtifact = page.locator("#nav-users");
+  await expect(navArtifact).toBeVisible();
 }

@@ -2,10 +2,10 @@
 
 import { getTranslation } from "@payloadcms/translations";
 import { NavGroup, useConfig, useTranslation } from "@payloadcms/ui";
-import { EntityType, formatAdminURL, type NavGroupType } from "@payloadcms/ui/shared";
+import { formatAdminURL, type NavGroupType } from "@payloadcms/ui/shared";
 import LinkWithDefault from "next/link";
 import { usePathname } from "next/navigation";
-import { type NavPreferences } from "payload";
+import { EntityType, type NavPreferences } from "payload";
 
 import { baseClass } from "./index";
 
@@ -36,6 +36,11 @@ export const NavClient = ({ groups, navPreferences }: Props) => {
               let href: string;
               let id: string;
 
+              // NavGroupType.entities[].type is typed with the deprecated EntityType from
+              // @payloadcms/ui/shared, while EntityType is imported from payload (the
+              // non-deprecated source). Both are string enums with identical members, so
+              // this compares correctly at runtime; TS only objects because enums are nominal.
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-comparison
               if (type === EntityType.collection) {
                 href = formatAdminURL({ adminRoute, path: `/collections/${slug}` });
                 id = `nav-${slug}`;
