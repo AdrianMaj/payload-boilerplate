@@ -32,10 +32,10 @@
   },
   "editor.formatOnSaveMode": "file",
   "js/ts.tsdk.path": "node_modules/typescript/lib",
-  "js/ts.tsdk.promptToUseWorkspaceVersion": true,
   "[javascript][typescript][typescriptreact]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
     }
-  }
+  },
+  "tailwindCSS.experimental.configFile": "packages/ui/src/styles/globals.css"
 }
