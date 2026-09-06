@@ -163,6 +163,7 @@ export const config = [
   {
     ignores: [
       "**/*.js",
+      "**/*.mjs",
       "**/*.jsx",
       "src/app/(payload)/**/*",
       "src/payload-types.ts",
@@ -177,3 +178,5 @@ export const config = [
     ],
   },
 ];
+
+export default config;

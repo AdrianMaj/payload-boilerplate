@@ -4,6 +4,6 @@
   "trailingComma": "all",
   "printWidth": 110,
   "tabWidth": 2,
-  "tailwindConfig": "./src/app/globals.css",
-  "tailwindStylesheet": "./src/app/globals.css"
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindStylesheet": "./src/app/(frontend)/globals.css"
 }
