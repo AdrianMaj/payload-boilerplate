@@ -1,31 +1,23 @@
 import js from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
-import turboPlugin from "eslint-plugin-turbo";
 import tseslint from "typescript-eslint";
-import onlyWarn from "eslint-plugin-only-warn";
 import importPlugin from "eslint-plugin-import";
 import pluginReactHooks from "eslint-plugin-react-hooks";
 import pluginReact from "eslint-plugin-react";
 import globals from "globals";
 import pluginNext from "@next/eslint-plugin-next";
 
-/**
- * Shared ESLint base config
- * @type {import("eslint").Linter.Config[]}
- */
-export const config = [
+/** @type {import("eslint").Linter.Config[]} */
+const config = [
   js.configs.recommended,
   eslintConfigPrettier,
   ...tseslint.configs.recommendedTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
   {
     plugins: {
-      turbo: turboPlugin,
       import: importPlugin,
     },
     rules: {
-      "turbo/no-undeclared-env-vars": "warn",
-
       // Import order
       "import/order": [
         "error",
@@ -93,11 +85,6 @@ export const config = [
       "import/no-default-export": "error",
     },
   },
-  {
-    plugins: {
-      onlyWarn,
-    },
-  },
   pluginReact.configs.flat.recommended,
   {
     languageOptions: {
@@ -155,7 +142,7 @@ export const config = [
   },
   {
     // Allow default exports for Payload config files
-    files: ["src/payload.config.ts", "playwright.config.ts"],
+    files: ["src/payload.config.ts", "playwright.config.ts", "vitest.config.mts"],
     rules: {
       "import/no-default-export": "off",
     },
@@ -171,7 +158,6 @@ export const config = [
       ".next/**",
       "next-env.d.ts",
       "node_modules/**",
-      ".turbo/**",
       "eslint.config.js",
       "eslint.config.mjs",
       "eslint.config.cjs",

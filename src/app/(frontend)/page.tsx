@@ -4,6 +4,7 @@ import { headers as getHeaders } from "next/headers.js";
 import Image from "next/image";
 import { getPayload } from "payload";
 
+import { Button } from "@/components/ui/button";
 import config from "@/payload.config";
 
 export default async function HomePage() {
@@ -30,22 +31,16 @@ export default async function HomePage() {
           {user ? `Welcome back, ${user.email}` : "Welcome to your new project."}
         </h1>
         <div className="mt-4 flex items-center gap-3">
-          <a
-            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-            href={payloadConfig.routes.admin}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Go to admin panel
-          </a>
-          <a
-            className="rounded-md border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
-            href="https://payloadcms.com/docs"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Documentation
-          </a>
+          <Button asChild>
+            <a href={payloadConfig.routes.admin} rel="noopener noreferrer" target="_blank">
+              Go to admin panel
+            </a>
+          </Button>
+          <Button asChild variant="outline">
+            <a href="https://payloadcms.com/docs" rel="noopener noreferrer" target="_blank">
+              Documentation
+            </a>
+          </Button>
         </div>
       </div>
       <div className="flex items-center gap-2 text-sm text-muted-foreground">
