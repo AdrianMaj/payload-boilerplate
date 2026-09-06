@@ -24,6 +24,7 @@
     "@payloadcms/db-mongodb": "3.88.0",
     "@payloadcms/next": "3.88.0",
     "@payloadcms/richtext-lexical": "3.88.0",
+    "@payloadcms/translations": "^3.88.0",
     "@payloadcms/ui": "3.88.0",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.2.6",
