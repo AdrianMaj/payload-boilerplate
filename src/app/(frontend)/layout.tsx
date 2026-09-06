@@ -1,14 +1,12 @@
-import React from "react";
+import type { Metadata } from "next";
 import "./globals.css";
 
-export const metadata = {
-  description: "A blank template using Payload in a Next.js app.",
-  title: "Payload Blank Template",
+export const metadata: Metadata = {
+  description: "A boilerplate using Payload in a Next.js app.",
+  title: "Payload Boilerplate",
 };
 
-export default async function RootLayout(props: { children: React.ReactNode }) {
-  const { children } = props;
-
+const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body>
@@ -16,4 +14,6 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

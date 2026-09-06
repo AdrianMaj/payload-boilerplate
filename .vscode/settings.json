@@ -1,41 +1,33 @@
 {
   "npm.packageManager": "pnpm",
+
+  // Prettier dla wszystkiego, co nie ma wlasnego nadpisania nizej
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
+  "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
-  "js/ts.tsdk.path": "node_modules/typescript/lib",
-  "[javascript][typescript][typescriptreact]": {
+
+  // TS/JS dodatkowo dostaja autofix ESLinta przy zapisie
+  "[typescript][typescriptreact][javascript][javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
     }
   },
-  "tailwindCSS.experimental.configFile": "packages/ui/src/styles/globals.css"
+  "[json][jsonc][css][scss][markdown][yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+
+  // uzywaj TypeScripta z repo, nie tego wbudowanego w edytor
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+
+  // Tailwind v4 nie ma tailwind.config.ts - IntelliSense czyta motyw z pliku CSS
+  "tailwindCSS.experimental.configFile": "src/app/(frontend)/globals.css",
+  // podpowiedzi klas rowniez wewnatrz cn() i cva() uzywanych przez shadcn
+  "tailwindCSS.classFunctions": ["cn", "cva", "clsx", "twMerge"],
+  "editor.quickSuggestions": {
+    "strings": "on"
+  }
 }
