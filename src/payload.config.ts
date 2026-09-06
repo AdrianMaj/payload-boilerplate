@@ -2,6 +2,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
+import { formBuilderPlugin } from "@payloadcms/plugin-form-builder";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { buildConfig } from "payload";
 import sharp from "sharp";
@@ -34,5 +35,5 @@ export default buildConfig({
     url: process.env.DATABASE_URL ?? "",
   }),
   sharp,
-  plugins: [],
+  plugins: [formBuilderPlugin({})],
 });

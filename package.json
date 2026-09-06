@@ -21,14 +21,17 @@
     "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts"
   },
   "dependencies": {
+    "@date-fns/tz": "^1.5.0",
     "@payloadcms/db-mongodb": "3.88.0",
     "@payloadcms/next": "3.88.0",
+    "@payloadcms/plugin-form-builder": "3.88.0",
     "@payloadcms/richtext-lexical": "3.88.0",
     "@payloadcms/translations": "^3.88.0",
     "@payloadcms/ui": "3.88.0",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.2.6",
     "cross-env": "^7.0.3",
+    "date-fns": "^4.4.0",
     "dotenv": "16.4.7",
     "graphql": "^16.8.1",
     "lucide-react": "^1.41.0",
@@ -38,7 +41,8 @@
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "shadcn": "^4.21.0",
-    "sharp": "0.34.2"
+    "sharp": "0.34.2",
+    "zod": "^4.5.4"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
